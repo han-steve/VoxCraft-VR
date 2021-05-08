@@ -15,7 +15,7 @@
     <script src="https://unpkg.com/aframe-event-set-component@4.0.1/dist/aframe-event-set-component.min.js"></script>
   </head>
   <body>
-    <a-scene renderer="colorManagement: true;">
+    <a-scene renderer="colorManagement: true;" avatar-recorder>
       <a-assets>
         <img
           id="groundTexture"
@@ -74,12 +74,12 @@
         <a-cylinder
           id="ground"
           src="#groundTexture"
-          radius="30"
+          radius="60"
           height="0.1"
         ></a-cylinder>
         <a-entity
           id="sky"
-          geometry="primitive: sphere; radius: 65;"
+          geometry="primitive: sphere; radius: 60;"
           material="shader: skyGradient; colorTop: #353449; colorBottom: #BC483E; side: back"
           animation__colorTop="property: material.colorTop; type: color; to: #576e71; dur: 60000; dir: alternate; loop: true"
           animation__colorBot="property: material.colorBottom; type: color; to: #e1c45e; dur: 60000; dir: alternate; loop: true"
