@@ -11,6 +11,8 @@
     <script src="components/intersection-spawn.js"></script>
     <script src="components/ground.js"></script>
     <script src="components/controls.js"></script>
+    <script src="components/minecraft-texture.js"></script>
+    <script src="components/minecraft-hands.js"></script>
     <script src="shaders/skyGradient.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@4.0.1/dist/aframe-event-set-component.min.js"></script>
   </head>
@@ -23,9 +25,9 @@
         />
         <a-mixin
           id="voxel"
-          geometry="primitive: box; height: .5; width: .5; depth: .5"
-          material="shader: standard"
-          snap="offset: .25 .25 .25; snap: .5 .5. 5"
+          geometry="primitive: box; height: 1; width: 1; depth: 1"
+          snap="offset: .5 .5 .5; snap: 1 1 1"
+          minecraft-texture
         ></a-mixin>
         <a-mixin
           id="cube"
@@ -50,26 +52,6 @@
 
       <!-- A-Frame cubes -->
       <a-entity position="0 0 -0.5">
-        <a-entity class="cube" mixin="cube" position="0.30 1.65 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="0 1.95 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="-0.30 1.65 0"></a-entity>
-
-        <a-entity class="cube" mixin="cube" position="0.60 1.35 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="0.60 1.05 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="0.60 0.75 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="0.60 0.45 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="0.60 0.15 0"></a-entity>
-
-        <a-entity class="cube" mixin="cube" position="0.30 0.75 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="0 0.75 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="-0.30 0.75 0"></a-entity>
-
-        <a-entity class="cube" mixin="cube" position="-0.60 1.35 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="-0.60 1.05 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="-0.60 0.75 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="-0.60 0.45 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="-0.60 0.15 0"></a-entity>
-
         <!-- Environment -->
         <a-cylinder
           id="ground"
@@ -104,15 +86,15 @@
         <a-entity position="0 1.6 2" camera look-controls></a-entity>
         <a-entity
           id="left-hand"
-          hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"
+          minecraft-hand="hand: left"
           aabb-collider="objects: .cube;"
           grab
         ></a-entity>
         <a-entity
           id="right-hand"
-          hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc"
           laser-controls
-          intersection-spawn="event: click; mixin: voxel"
+          minecraft-hand="hand: right"
+          intersection-spawn="event: click; mixin: voxel; class: cube"
           aabb-collider="objects: .cube;"
           grab
         ></a-entity>
