@@ -45,6 +45,10 @@
           material="color: #EF2D5E;"
         ></a-mixin>
         <a-asset-item
+          id="zombie"
+          src="./assets/zombie/scene.gltf"
+        ></a-asset-item>
+        <a-asset-item
           id="ground"
           src="https://cdn.aframe.io/examples/tracked-controls/ground.glb"
         ></a-asset-item>
@@ -58,6 +62,7 @@
         radius="60"
         height="0.1"
       ></a-cylinder> -->
+      <!-- <a-entity gltf-model="#zombie"></a-entity> -->
       <a-entity
         id="sky"
         geometry="primitive: sphere; radius: 60;"
@@ -66,7 +71,6 @@
         animation__colorBot="property: material.colorBottom; type: color; to: #e1c45e; dur: 60000; dir: alternate; loop: true"
       ></a-entity>
       <a-entity position="-32, -30, -32" voxel-world></a-entity>
-      <!-- <a-entity ground></a-entity> -->
       <a-entity
         light="type: point; color: #f4f4f4; intensity: 0.1; distance: 0"
         position="-2.5 1.2 2.2"
