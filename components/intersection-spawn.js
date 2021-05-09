@@ -26,7 +26,11 @@ AFRAME.registerComponent("intersection-spawn", {
         if (name === "event") {
           return;
         }
-        AFRAME.utils.entity.setComponentProperty(spawnEl, name, data[name]);
+        if (name === "class") {
+          spawnEl.classList.add(data[name]);
+        } else {
+          AFRAME.utils.entity.setComponentProperty(spawnEl, name, data[name]);
+        }
       });
 
       // Append to scene.
