@@ -159,19 +159,11 @@ AFRAME.registerComponent("voxel-world", {
     let cellSize = 64;
     noise.seed(Math.random());
     const world = new VoxelWorld({ cellSize });
-    for (let y = 0; y < cellSize; ++y) {
-      for (let z = 0; z < cellSize; ++z) {
-        for (let x = 0; x < cellSize; ++x) {
-          // const height =
-          //   (Math.sin((x / cellSize) * Math.PI * 2) +
-          //     Math.sin((z / cellSize) * Math.PI * 3)) *
-          //     (cellSize / 6) +
-          //   cellSize / 2;
-          const height = Math.round(noise.perlin2(x / 10, z / 10) * 30) + 30;
-
-          if (y < height) {
-            world.setVoxel(x, y, z, 1);
-          }
+    for (let z = 0; z < cellSize; ++z) {
+      for (let x = 0; x < cellSize; ++x) {
+        const height = Math.round(noise.perlin2(x / 25, z / 25) * 10) + 20;
+        for (let y = 0; y < height; y++) {
+          world.setVoxel(x, y, z, 1);
         }
       }
     }
