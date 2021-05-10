@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <title>Tracked Controls</title>
     <meta name="description" content="Tracked Controls – A-Frame" />
-    <script src="../aframe.js"></script>
+    <!-- <script src="../aframe.js"></script> -->
+    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
     <script src="./utils/perlin.js"></script>
     <script src="components/aabb-collider.js"></script>
     <script src="components/bow-and-arrow.js"></script>
@@ -16,11 +17,16 @@
     <script src="components/minecraft-texture.js"></script>
     <script src="components/minecraft-hands.js"></script>
     <script src="components/voxel-world.js"></script>
+    <script src="components/infinite-grid.js"></script>
+    <script src="components/aframe-physics-system.min.js"></script>
     <script src="shaders/skyGradient.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@4.0.1/dist/aframe-event-set-component.min.js"></script>
   </head>
   <body>
-    <a-scene renderer="colorManagement: true;" avatar-recorder>
+    <a-scene
+      renderer="colorManagement: true;"
+      fog="type: linear; color: #888; far: 120; near: 30"
+    >
       <a-assets>
         <img
           id="groundTexture"
@@ -85,27 +91,32 @@
 
       <a-entity
         id="sky"
-        geometry="primitive: sphere; radius: 60;"
+        geometry="primitive: sphere; radius: 600;"
         material="shader: skyGradient; colorTop: #353449; colorBottom: #BC483E; side: back"
         animation__colorTop="property: material.colorTop; type: color; to: #576e71; dur: 60000; dir: alternate; loop: true"
         animation__colorBot="property: material.colorBottom; type: color; to: #e1c45e; dur: 60000; dir: alternate; loop: true"
       ></a-entity>
-      <!-- <a-entity position="-32, -30, -32" voxel-world></a-entity> -->
       <a-entity
+        id="world"
+        position="-16, -20, -16"
+        voxel-world="centerCell: 0,0"
+        infinite-grid
+      ></a-entity>
+      <!-- <a-entity
         light="type: point; color: #f4f4f4; intensity: 0.1; distance: 0"
         position="-2.5 1.2 2.2"
       ></a-entity>
       <a-entity
         light="type: point; color: #f4f4f4; intensity: 0.1; distance: 0"
         position="-20 -7 -40"
-      ></a-entity>
+      ></a-entity> -->
       <a-entity
-        light="type: ambient; color: #f4f4f4; intensity: 0.15;"
+        light="type: ambient; color: #f4f4f4; intensity: 0.05;"
         position="-8 10 -18"
         animation="property: light.intensity; to: .8; dur: 60000; dir: alternate; loop: true"
       ></a-entity>
       <!-- Hands -->
-      <a-entity movement-controls="fly: true">
+      <a-entity id="camera-rig" movement-controls="fly: true">
         <a-entity position="0 1.6 2" camera look-controls></a-entity>
         <a-entity
           id="left-hand"
