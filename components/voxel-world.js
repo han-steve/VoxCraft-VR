@@ -210,6 +210,7 @@ AFRAME.registerComponent("voxel-world", {
     });
 
     this.world = world;
+    document.world = world;
     this.material = material;
 
     // seed the noise (global)
@@ -218,6 +219,7 @@ AFRAME.registerComponent("voxel-world", {
     this.generateCell.bind(this);
 
     this.cellIdToMesh = {};
+    this.cellIdToLight = {};
 
     this.updateCellGeometry.bind(this);
 
@@ -230,10 +232,12 @@ AFRAME.registerComponent("voxel-world", {
     centerx = Number(centerx);
     centerz = Number(centerz);
 
+    let radius = 2;
+
     let currentCellIds = [];
     // y is always set to 0
-    for (let x = centerx - 1; x <= centerx + 1; x++) {
-      for (let z = centerz - 1; z <= centerz + 1; z++) {
+    for (let x = centerx - radius; x <= centerx + radius; x++) {
+      for (let z = centerz - radius; z <= centerz + radius; z++) {
         let cellId = `${x},0,${z}`;
         currentCellIds.push(cellId);
 
@@ -329,8 +333,22 @@ AFRAME.registerComponent("voxel-world", {
             this.world.setVoxel(x, y, z, 15);
           }
           this.world.setVoxel(x, height, z, 14);
+
+          // lantern
+          if (
+            x === startx * cellSize + cellSize / 2 &&
+            z === startz * cellSize + cellSize / 2
+          ) {
+            this.world.setVoxel(x, height + 1, z, 1);
+            // this.cellIdToLight[`${startx},${starty},${startz}`]
+          }
           // trees
-          if (height > 7 && x % 10 == 0 && z % 10 == 0 && Math.random() > 0.5) {
+          else if (
+            height > 7 &&
+            x % 10 == 0 &&
+            z % 10 == 0 &&
+            Math.random() > 0.5
+          ) {
             // leaves
             let radius = 1;
             if (Math.random() > 0.5) {
@@ -358,6 +376,7 @@ AFRAME.registerComponent("voxel-world", {
             }
           }
         } else if (height <= 20) {
+          // rocks
           for (let y = 1; y <= height - 1; y++) {
             this.world.setVoxel(x, y, z, 4);
           }
