@@ -329,7 +329,30 @@ AFRAME.registerComponent("voxel-world", {
             this.world.setVoxel(x, y, z, 15);
           }
           this.world.setVoxel(x, height, z, 14);
-          if (height > 10 && x % 10 == 0 && z % 10 == 0) {
+          // trees
+          if (height > 7 && x % 10 == 0 && z % 10 == 0 && Math.random() > 0.5) {
+            // leaves
+            let radius = 1;
+            if (Math.random() > 0.5) {
+              radius = 2;
+            }
+            for (
+              let x1 = Math.max(x - radius, startx * cellSize);
+              x1 <= Math.min(x + radius, startx * cellSize + cellSize - 1);
+              x1++
+            ) {
+              for (
+                let z1 = Math.max(z - radius, startz * cellSize);
+                z1 <= Math.min(z + radius, startz * cellSize + cellSize - 1);
+                z1++
+              ) {
+                for (let y = height + 4; y <= height + 7; y++) {
+                  this.world.setVoxel(x1, y, z1, 12);
+                }
+              }
+            }
+
+            // trunk
             for (let y = height + 1; y <= height + 5; y++) {
               this.world.setVoxel(x, y, z, 10);
             }

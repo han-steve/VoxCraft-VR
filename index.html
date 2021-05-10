@@ -16,6 +16,7 @@
     <script src="components/minecraft-hands.js"></script>
     <script src="components/voxel-world.js"></script>
     <script src="components/infinite-grid.js"></script>
+    <script src="components/aframe-physics-system.min.js"></script>
     <script src="shaders/skyGradient.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@4.0.1/dist/aframe-event-set-component.min.js"></script>
   </head>
@@ -76,16 +77,16 @@
         voxel-world="centerCell: 0,0"
         infinite-grid
       ></a-entity>
-      <a-entity
+      <!-- <a-entity
         light="type: point; color: #f4f4f4; intensity: 0.1; distance: 0"
         position="-2.5 1.2 2.2"
       ></a-entity>
       <a-entity
         light="type: point; color: #f4f4f4; intensity: 0.1; distance: 0"
         position="-20 -7 -40"
-      ></a-entity>
+      ></a-entity> -->
       <a-entity
-        light="type: ambient; color: #f4f4f4; intensity: 0.15;"
+        light="type: ambient; color: #f4f4f4; intensity: 0.05;"
         position="-8 10 -18"
         animation="property: light.intensity; to: .8; dur: 60000; dir: alternate; loop: true"
       ></a-entity>
