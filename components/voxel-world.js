@@ -180,7 +180,7 @@ VoxelWorld.faces = [
 
 AFRAME.registerComponent("voxel-world", {
   schema: {
-    centerCell: { default: "0,0,0" },
+    centerCell: { default: "0,0" },
     cellSize: { default: 32 },
   },
 
@@ -225,19 +225,34 @@ AFRAME.registerComponent("voxel-world", {
   },
 
   update: function () {
-    [centerx, centery, centerz] = this.data.centerCell.split(",");
+    // console.log(this.data.centerCell);
+    let [centerx, centerz] = this.data.centerCell.split(",");
+    centerx = Number(centerx);
+    centerz = Number(centerz);
+
+    let currentCellIds = [];
+    // y is always set to 0
     for (let x = centerx - 1; x <= centerx + 1; x++) {
       for (let z = centerz - 1; z <= centerz + 1; z++) {
-        this.generateCell(x, Number(centery), z);
-        this.updateCellGeometry(
-          x * this.data.cellSize,
-          Number(centery) * this.data.cellSize,
-          z * this.data.cellSize
-        );
+        let cellId = `${x},0,${z}`;
+        currentCellIds.push(cellId);
+
+        // only generate cell if it's not already generated
+        if (!this.world.cells[cellId]) {
+          this.generateCell(x, 0, z);
+        }
+        if (!this.cellIdToMesh[cellId])
+          this.updateCellGeometry(
+            x * this.data.cellSize,
+            0,
+            z * this.data.cellSize
+          );
       }
     }
+    // console.log(this.world.cells);
     for (let [key, value] of Object.entries(this.cellIdToMesh)) {
-      this.el.setObject3D(key, value);
+      if (currentCellIds.includes(key)) this.el.setObject3D(key, value);
+      else if (this.el.getObject3D(key)) this.el.removeObject3D(key);
     }
   },
 
@@ -290,19 +305,47 @@ AFRAME.registerComponent("voxel-world", {
     let cellSize = this.data.cellSize;
     for (let z = startz * cellSize; z < startz * cellSize + cellSize; ++z) {
       for (let x = startx * cellSize; x < startx * cellSize + cellSize; ++x) {
-        const height = Math.round(noise.perlin2(x / 25, z / 25) * 10) + 20;
-        for (let y = 0; y < height; y++) {
-          this.world.setVoxel(x, y, z, 14);
+        const height = Math.round(noise.perlin2(x / 25, z / 25) * 15) + 10;
+        this.world.setVoxel(x, 0, z, 4);
+        if (height <= 3) {
+          // water
+          for (let y = 1; y < height - 1; y++) {
+            this.world.setVoxel(x, y, z, 15);
+          }
+          for (let y = height - 1; y <= height; y++) {
+            this.world.setVoxel(x, y, z, 13);
+          }
+        } else if (height <= 4) {
+          // wet ground
+          for (let y = 1; y <= height; y++) {
+            this.world.setVoxel(x, y, z, 8);
+          }
+        } else if (height <= 15) {
+          // grassy ground
+          for (let y = 1; y <= height - 5; y++) {
+            this.world.setVoxel(x, y, z, 4);
+          }
+          for (let y = height - 5; y <= height - 1; y++) {
+            this.world.setVoxel(x, y, z, 15);
+          }
+          this.world.setVoxel(x, height, z, 14);
+          if (height > 10 && x % 10 == 0 && z % 10 == 0) {
+            for (let y = height + 1; y <= height + 5; y++) {
+              this.world.setVoxel(x, y, z, 10);
+            }
+          }
+        } else if (height <= 20) {
+          for (let y = 1; y <= height - 1; y++) {
+            this.world.setVoxel(x, y, z, 4);
+          }
+          this.world.setVoxel(x, height, z, 4);
+        } else {
+          for (let y = 1; y <= height - 1; y++) {
+            this.world.setVoxel(x, y, z, 4);
+          }
+          this.world.setVoxel(x, height, z, 5);
         }
       }
     }
-  },
-
-  remove: function () {
-    // Do something the component or its entity is detached.
-  },
-
-  tick: function (time, timeDelta) {
-    // Do something on every scene tick or frame.
   },
 });
