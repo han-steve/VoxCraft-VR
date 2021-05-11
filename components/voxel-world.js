@@ -345,10 +345,11 @@ AFRAME.registerComponent("voxel-world", {
           // lantern
           if (
             x === startx * cellSize + cellSize / 2 &&
-            z === startz * cellSize + cellSize / 2
+            z === startz * cellSize + cellSize / 2 &&
+            Math.random() > 0.2
           ) {
             this.world.setVoxel(x, height + 1, z, 1);
-            const light = new THREE.PointLight("#BC483E", 0.9, 10);
+            const light = new THREE.PointLight("#BC483E", 1, 10);
             light.position.set(x, height + 3, z);
             this.cellIdToLight[`${startx},${starty},${startz}`] = light;
           }
