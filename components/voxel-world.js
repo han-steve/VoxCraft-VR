@@ -350,7 +350,7 @@ AFRAME.registerComponent("voxel-world", {
           ) {
             this.world.setVoxel(x, height + 1, z, 1);
             const light = new THREE.PointLight("#BC483E", 1, 10);
-            light.position.set(x, height + 3, z);
+            light.position.set(x + 0.5, height + 2.5, z + 0.5);
             this.cellIdToLight[`${startx},${starty},${startz}`] = light;
           }
           // trees

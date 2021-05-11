@@ -19,6 +19,7 @@
     <script src="components/voxel-world.js"></script>
     <script src="components/gravity.js"></script>
     <script src="components/infinite-grid.js"></script>
+    <script src="components/block-manipulation.js"></script>
     <script src="components/aframe-physics-system.min.js"></script>
     <script src="shaders/skyGradient.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@4.0.1/dist/aframe-event-set-component.min.js"></script>
@@ -94,8 +95,8 @@
         id="sky"
         geometry="primitive: sphere; radius: 600;"
         material="shader: skyGradient; colorTop: #353449; colorBottom: #BC483E; side: back"
-        animation__colorTop="property: material.colorTop; type: color; to: #5596FF; dur: 60000; dir: alternate; loop: true"
-        animation__colorBot="property: material.colorBottom; type: color; to: #F0FFFF; dur: 60000; dir: alternate; loop: true"
+        animation__colorTop="property: material.colorTop; type: color; to: #87ceff; dur: 60000; dir: alternate; loop: true"
+        animation__colorBot="property: material.colorBottom; type: color; to: #add8e6; dur: 60000; dir: alternate; loop: true"
       ></a-entity>
       <a-entity
         id="world"
@@ -130,24 +131,16 @@
           aabb-collider="objects: .cube;"
           grab
         >
-          <!-- Bow and Arrow -->
-          <a-entity id="bowContainer" bow-and-arrow position="0 0 0"></a-entity>
         </a-entity>
         <a-entity
           id="right-hand"
           laser-controls
+          raycaster="objects: #world; far: 3"
           minecraft-hand="hand: right"
           intersection-spawn="event: click; mixin: voxel; class: cube"
           aabb-collider="objects: .cube;"
           grab
         >
-          <a-entity
-            id="preShotArrow"
-            obj-model="obj: #arrow-obj; mtl: #arrow-mtl"
-            position="0 0 0"
-            scale="0.05 0.05 0.05"
-            visible="true"
-          ></a-entity>
         </a-entity>
       </a-entity>
     </a-scene>
