@@ -8,6 +8,7 @@
     <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
     <script src="./utils/perlin.js"></script>
     <script src="components/aabb-collider.js"></script>
+    <script src="components/bow-and-arrow.js"></script>
     <script src="components/grab.js"></script>
     <script src="components/snap.js"></script>
     <script src="components/intersection-spawn.js"></script>
@@ -16,6 +17,7 @@
     <script src="components/minecraft-texture.js"></script>
     <script src="components/minecraft-hands.js"></script>
     <script src="components/voxel-world.js"></script>
+    <script src="components/gravity.js"></script>
     <script src="components/infinite-grid.js"></script>
     <script src="components/aframe-physics-system.min.js"></script>
     <script src="shaders/skyGradient.js"></script>
@@ -58,6 +60,22 @@
           id="ground"
           src="https://cdn.aframe.io/examples/tracked-controls/ground.glb"
         ></a-asset-item>
+        <a-asset-item
+          id="bow-obj"
+          src="assets/models/bow-rotate-no-string.obj"
+        ></a-asset-item>
+        <a-asset-item
+          id="bow-mtl"
+          src="assets/models/bow-rotate-no-string.mtl"
+        ></a-asset-item>
+        <a-asset-item
+          id="arrow-obj"
+          src="assets/models/low-poly-arrow-rotated.obj"
+        ></a-asset-item>
+        <a-asset-item
+          id="arrow-mtl"
+          src="assets/models/low-poly-arrow.mtl"
+        ></a-asset-item>
       </a-assets>
 
       <a-entity class="cube" mixin="voxel"></a-entity>
@@ -68,7 +86,10 @@
         radius="60"
         height="0.1"
       ></a-cylinder> -->
-      <a-entity gltf-model="#zombie" scale="0.15 0.15 0.15"></a-entity>
+
+      <!-- Zombie -->
+      <!-- <a-entity id="zombie" gltf-model="#zombie" scale="0.15 0.15 0.15"></a-entity> -->
+
       <a-entity
         id="sky"
         geometry="primitive: sphere; radius: 600;"
@@ -96,14 +117,17 @@
         animation="property: light.intensity; to: .8; dur: 60000; dir: alternate; loop: true"
       ></a-entity>
       <!-- Hands -->
-      <a-entity id="camera-rig" movement-controls="fly: true">
+      <a-entity id="camera-rig" movement-controls="fly: true" gravity>
         <a-entity position="16 1.6 16" camera look-controls></a-entity>
         <a-entity
           id="left-hand"
           minecraft-hand="hand: left"
           aabb-collider="objects: .cube;"
           grab
-        ></a-entity>
+        >
+          <!-- Bow and Arrow -->
+          <a-entity id="bowContainer" bow-and-arrow position="0 0 0"></a-entity>
+        </a-entity>
         <a-entity
           id="right-hand"
           laser-controls
@@ -111,7 +135,15 @@
           intersection-spawn="event: click; mixin: voxel; class: cube"
           aabb-collider="objects: .cube;"
           grab
-        ></a-entity>
+        >
+          <a-entity
+            id="preShotArrow"
+            obj-model="obj: #arrow-obj; mtl: #arrow-mtl"
+            position="0 0 0"
+            scale="0.05 0.05 0.05"
+            visible="true"
+          ></a-entity>
+        </a-entity>
       </a-entity>
     </a-scene>
   </body>
