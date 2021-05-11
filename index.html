@@ -17,6 +17,7 @@
     <script src="components/minecraft-texture.js"></script>
     <script src="components/minecraft-hands.js"></script>
     <script src="components/voxel-world.js"></script>
+    <script src="components/gravity.js"></script>
     <script src="components/infinite-grid.js"></script>
     <script src="components/aframe-physics-system.min.js"></script>
     <script src="shaders/skyGradient.js"></script>
@@ -116,7 +117,7 @@
         animation="property: light.intensity; to: .8; dur: 60000; dir: alternate; loop: true"
       ></a-entity>
       <!-- Hands -->
-      <a-entity id="camera-rig" movement-controls="fly: true">
+      <a-entity id="camera-rig" movement-controls="fly: true" gravity>
         <a-entity position="0 1.6 2" camera look-controls></a-entity>
         <a-entity
           id="left-hand"
