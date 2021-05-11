@@ -28,6 +28,7 @@
     <script src="components/aframe-physics-system.min.js"></script>
     <script src="components/movement-mode.js"></script>
     <script src="components/change-mode.js"></script>
+    <script src="components/cursor.js"></script>
     <script src="shaders/skyGradient.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@4.0.1/dist/aframe-event-set-component.min.js"></script>
   </head>
@@ -37,10 +38,7 @@
       fog="type: linear; color: #888; far: 100; near: 30"
     >
       <a-assets>
-        <img
-          id="groundTexture"
-          src="https://cdn.aframe.io/a-painter/images/floor.jpg"
-        />
+        <img id="cursorTexture" src="./assets/textures/cursor.png" />
         <a-mixin
           id="voxel"
           geometry="primitive: box; height: 1; width: 1; depth: 1"
@@ -105,14 +103,14 @@
         animation__colorTop="property: material.colorTop; type: color; to: #87ceff; dur: 60000; dir: alternate; loop: true"
         animation__colorBot="property: material.colorBottom; type: color; to: #add8e6; dur: 60000; dir: alternate; loop: true"
       ></a-entity>
-      <!-- <a-entity
+      <a-entity
         id="world"
         position="0, -20, 0"
         voxel-world="centerCell: 0,0"
         infinite-grid
         block-manipulation
       ></a-entity>
-      <-- <a-entity
+      <!-- <a-entity
         light="type: point; color: #f4f4f4; intensity: 0.1; distance: 0"
         position="-2.5 1.2 2.2"
       ></a-entity>
@@ -125,6 +123,10 @@
         position="-8 10 -18"
         animation="property: light.intensity; to: .8; dur: 60000; dir: alternate; loop: true"
       ></a-entity>
+      <a-plane
+        id="cursor"
+        material="src: #cursorTexture; transparent: true"
+      ></a-plane>
       <!-- Hands -->
       <a-entity
         position="16 1.6 16"
@@ -132,7 +134,7 @@
         movement-controls
         movement-mode="survival: false"
       >
-        <a-entity id="inventory" inventory></a-entity>
+        <a-entity id="inventory"></a-entity>
         <a-entity id="camera" camera look-controls></a-entity>
         <a-entity id="left-hand" minecraft-hand="hand: left"> </a-entity>
         <a-entity
@@ -141,6 +143,7 @@
           raycaster="objects: #world; far: 3"
           minecraft-hand="hand: right"
           change-mode
+          cursor
         >
         </a-entity>
       </a-entity>
