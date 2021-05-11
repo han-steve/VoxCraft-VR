@@ -117,8 +117,13 @@
         animation="property: light.intensity; to: .8; dur: 60000; dir: alternate; loop: true"
       ></a-entity>
       <!-- Hands -->
-      <a-entity id="camera-rig" movement-controls="fly: true" gravity>
-        <a-entity position="16 1.6 16" camera look-controls></a-entity>
+      <a-entity
+        position="16 1.6 16"
+        id="camera-rig"
+        movement-controls="fly: false"
+        gravity
+      >
+        <a-entity id="camera" camera look-controls></a-entity>
         <a-entity
           id="left-hand"
           minecraft-hand="hand: left"
