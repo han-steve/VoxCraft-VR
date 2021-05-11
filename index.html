@@ -16,6 +16,7 @@
     <script src="components/controls.js"></script>
     <script src="components/minecraft-texture.js"></script>
     <script src="components/minecraft-hands.js"></script>
+    <script src="components/inventory.js"></script>
     <script src="components/voxel-world.js"></script>
     <script src="components/gravity.js"></script>
     <script src="components/auto-jump.js"></script>
@@ -98,12 +99,12 @@
         animation__colorTop="property: material.colorTop; type: color; to: #5596FF; dur: 60000; dir: alternate; loop: true"
         animation__colorBot="property: material.colorBottom; type: color; to: #F0FFFF; dur: 60000; dir: alternate; loop: true"
       ></a-entity>
-      <a-entity
+      <!-- <a-entity
         id="world"
         position="0, -20, 0"
         voxel-world="centerCell: 0,0"
         infinite-grid
-      ></a-entity>
+      ></a-entity> -->
       <!-- <a-entity
         light="type: point; color: #f4f4f4; intensity: 0.1; distance: 0"
         position="-2.5 1.2 2.2"
@@ -122,9 +123,8 @@
         position="16 1.6 16"
         id="camera-rig"
         movement-controls="fly: false"
-        gravity
-        auto-jump
       >
+        <a-entity id="inventory" inventory></a-entity>
         <a-entity id="camera" camera look-controls></a-entity>
         <a-entity
           id="left-hand"
