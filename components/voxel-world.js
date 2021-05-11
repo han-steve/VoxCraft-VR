@@ -254,9 +254,17 @@ AFRAME.registerComponent("voxel-world", {
       }
     }
     // console.log(this.world.cells);
+    // append/delete meshes on the scene
     for (let [key, value] of Object.entries(this.cellIdToMesh)) {
       if (currentCellIds.includes(key)) this.el.setObject3D(key, value);
       else if (this.el.getObject3D(key)) this.el.removeObject3D(key);
+    }
+    // append/delete lights on the scene
+    for (let [key, value] of Object.entries(this.cellIdToLight)) {
+      if (currentCellIds.includes(key))
+        this.el.setObject3D(key + "light", value);
+      else if (this.el.getObject3D(key + "light"))
+        this.el.removeObject3D(key + "light");
     }
   },
 
@@ -340,7 +348,9 @@ AFRAME.registerComponent("voxel-world", {
             z === startz * cellSize + cellSize / 2
           ) {
             this.world.setVoxel(x, height + 1, z, 1);
-            // this.cellIdToLight[`${startx},${starty},${startz}`]
+            const light = new THREE.PointLight("#BC483E", 0.9, 10);
+            light.position.set(x, height + 3, z);
+            this.cellIdToLight[`${startx},${starty},${startz}`] = light;
           }
           // trees
           else if (

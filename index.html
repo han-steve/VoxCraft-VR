@@ -24,7 +24,7 @@
   <body>
     <a-scene
       renderer="colorManagement: true;"
-      fog="type: linear; color: #888; far: 120; near: 30"
+      fog="type: linear; color: #888; far: 100; near: 30"
     >
       <a-assets>
         <img
@@ -73,12 +73,12 @@
         id="sky"
         geometry="primitive: sphere; radius: 600;"
         material="shader: skyGradient; colorTop: #353449; colorBottom: #BC483E; side: back"
-        animation__colorTop="property: material.colorTop; type: color; to: #576e71; dur: 60000; dir: alternate; loop: true"
-        animation__colorBot="property: material.colorBottom; type: color; to: #e1c45e; dur: 60000; dir: alternate; loop: true"
+        animation__colorTop="property: material.colorTop; type: color; to: #5596FF; dur: 60000; dir: alternate; loop: true"
+        animation__colorBot="property: material.colorBottom; type: color; to: #F0FFFF; dur: 60000; dir: alternate; loop: true"
       ></a-entity>
       <a-entity
         id="world"
-        position="-16, -20, -16"
+        position="0, -20, 0"
         voxel-world="centerCell: 0,0"
         infinite-grid
       ></a-entity>
@@ -97,7 +97,7 @@
       ></a-entity>
       <!-- Hands -->
       <a-entity id="camera-rig" movement-controls="fly: true">
-        <a-entity position="0 1.6 2" camera look-controls></a-entity>
+        <a-entity position="16 1.6 16" camera look-controls></a-entity>
         <a-entity
           id="left-hand"
           minecraft-hand="hand: left"

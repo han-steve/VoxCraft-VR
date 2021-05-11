@@ -9,10 +9,14 @@ AFRAME.registerComponent("infinite-grid", {
   init: function () {
     // this.camera = this.el.sceneEl.querySelector("#camera-rig")
     this.pos = this.el.sceneEl.querySelector("#camera-rig").object3D.position;
-    this.xMin = -this.data.cellSize / 2;
-    this.xMax = this.data.cellSize / 2;
-    this.zMin = -this.data.cellSize / 2;
-    this.zMax = this.data.cellSize / 2;
+    // this.xMin = -this.data.cellSize / 2;
+    // this.xMax = this.data.cellSize / 2;
+    // this.zMin = -this.data.cellSize / 2;
+    // this.zMax = this.data.cellSize / 2;
+    this.xMin = 0;
+    this.xMax = this.data.cellSize;
+    this.zMin = 0;
+    this.zMax = this.data.cellSize;
 
     this.updateCenterCell.bind(this);
   },
@@ -40,9 +44,9 @@ AFRAME.registerComponent("infinite-grid", {
 
   updateCenterCell: function () {
     this.el.setAttribute("voxel-world", {
-      centerCell: `${
-        (this.xMin + this.data.cellSize / 2) / this.data.cellSize
-      },${(this.zMin + this.data.cellSize / 2) / this.data.cellSize}`,
+      centerCell: `${this.xMin / this.data.cellSize},${
+        this.zMin / this.data.cellSize
+      }`,
     });
   },
 });
