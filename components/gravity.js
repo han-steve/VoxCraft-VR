@@ -2,6 +2,7 @@ AFRAME.registerComponent("gravity", {
   schema: {},
   init: function () {
     this.cellSize = 32;
+    this.rotation = this.el.sceneEl.querySelector("#camera").object3D.rotation;
   },
   update: function () {},
 
@@ -11,7 +12,8 @@ AFRAME.registerComponent("gravity", {
     let yPos = this.el.object3D.position.y;
     let zPos = this.el.object3D.position.z;
 
-    console.log(xPos, yPos, zPos);
+    // console.log(xPos, yPos, zPos);
+    // console.log(this.rotation);
 
     // let currCell = document.world.getVoxel(xPos, yPos, zPos);
     let cellUnder = document.world.getVoxel(xPos, yPos - 2 + 20, zPos);
