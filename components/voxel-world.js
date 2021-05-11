@@ -81,7 +81,7 @@ class VoxelWorld {
                 voxelY + dir[1],
                 voxelZ + dir[2]
               );
-              if (!neighbor) {
+              if (!neighbor || (neighbor === 13 && voxel !== 13)) {
                 // this voxel has no neighbor in this direction so we need a face.
                 const ndx = positions.length / 3;
                 for (const { pos, uv } of corners) {
@@ -245,6 +245,13 @@ AFRAME.registerComponent("voxel-world", {
         if (!this.world.cells[cellId]) {
           this.generateCell(x, 0, z);
         }
+      }
+    }
+    for (let x = centerx - radius; x <= centerx + radius; x++) {
+      for (let z = centerz - radius; z <= centerz + radius; z++) {
+        let cellId = `${x},0,${z}`;
+        currentCellIds.push(cellId);
+
         if (!this.cellIdToMesh[cellId])
           this.updateCellGeometry(
             x * this.data.cellSize,
@@ -278,12 +285,8 @@ AFRAME.registerComponent("voxel-world", {
     let mesh = cellIdToMesh[cellId];
     const geometry = mesh ? mesh.geometry : new THREE.BufferGeometry();
 
-    const {
-      positions,
-      normals,
-      uvs,
-      indices,
-    } = world.generateGeometryDataForCell(cellX, cellY, cellZ);
+    const { positions, normals, uvs, indices } =
+      world.generateGeometryDataForCell(cellX, cellY, cellZ);
     const positionNumComponents = 3;
     geometry.setAttribute(
       "position",
@@ -346,7 +349,7 @@ AFRAME.registerComponent("voxel-world", {
           if (
             x === startx * cellSize + cellSize / 2 &&
             z === startz * cellSize + cellSize / 2 &&
-            Math.random() > 0.2
+            Math.random() > 0.1
           ) {
             this.world.setVoxel(x, height + 1, z, 1);
             const light = new THREE.PointLight("#BC483E", 1, 10);

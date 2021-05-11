@@ -2,8 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Tracked Controls</title>
-    <meta name="description" content="Tracked Controls – A-Frame" />
+    <title>VoxelCraft VR</title>
+    <meta
+      name="description"
+      content="VoxelCaft VR - a minecraft demo made for VR"
+    />
     <!-- <script src="../aframe.js"></script> -->
     <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
     <script src="./utils/perlin.js"></script>
@@ -22,6 +25,8 @@
     <script src="components/infinite-grid.js"></script>
     <script src="components/block-manipulation.js"></script>
     <script src="components/aframe-physics-system.min.js"></script>
+    <script src="components/movement-mode.js"></script>
+    <script src="components/change-mode.js"></script>
     <script src="shaders/skyGradient.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@4.0.1/dist/aframe-event-set-component.min.js"></script>
   </head>
@@ -104,6 +109,7 @@
         position="0, -20, 0"
         voxel-world="centerCell: 0,0"
         infinite-grid
+        block-manipulation
       ></a-entity>
       <!-- <a-entity
         light="type: point; color: #f4f4f4; intensity: 0.1; distance: 0"
@@ -122,26 +128,17 @@
       <a-entity
         position="16 1.6 16"
         id="camera-rig"
-        movement-controls="fly: false"
-        gravity
-        auto-jump
+        movement-controls
+        movement-mode="survival: true"
       >
         <a-entity id="camera" camera look-controls></a-entity>
-        <a-entity
-          id="left-hand"
-          minecraft-hand="hand: left"
-          aabb-collider="objects: .cube;"
-          grab
-        >
-        </a-entity>
+        <a-entity id="left-hand" minecraft-hand="hand: left"> </a-entity>
         <a-entity
           id="right-hand"
           laser-controls
           raycaster="objects: #world; far: 3"
           minecraft-hand="hand: right"
-          intersection-spawn="event: click; mixin: voxel; class: cube"
-          aabb-collider="objects: .cube;"
-          grab
+          change-mode
         >
         </a-entity>
       </a-entity>

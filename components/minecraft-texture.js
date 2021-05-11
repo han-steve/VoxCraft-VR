@@ -29,5 +29,6 @@ AFRAME.registerComponent("minecraft-texture", {
       sideMaterial,
     ];
     this.el.getOrCreateObject3D("mesh").material = materials;
-  }
+    // console.log(this.el.getObject3D("mesh").geometry.faces);
+  },
 });
