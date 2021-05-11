@@ -4,6 +4,9 @@ AFRAME.registerComponent("inventory", {
     var selectEl = this.el; // Reference to the component's element.
     this.blockSelected = 0;
     this.handSelected = 0;
+    this.el.sceneEl.querySelector("#right-hand").addEventListener("abuttonup", () => {
+      this.el.setAttribute('visible', !this.el.getAttribute('visible'))
+    })
     // console.log("inventory");
 
     // Create the "frame" of the select menu bar
