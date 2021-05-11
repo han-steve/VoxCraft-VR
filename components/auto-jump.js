@@ -1,4 +1,4 @@
-AFRAME.registerComponent("gravity", {
+AFRAME.registerComponent("auto-jump", {
     schema: {},
     init: function () {
         this.cellSize = 20;

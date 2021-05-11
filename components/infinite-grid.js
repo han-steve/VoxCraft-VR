@@ -21,6 +21,7 @@ AFRAME.registerComponent("infinite-grid", {
     this.updateCenterCell.bind(this);
   },
 
+  // crossing over cell threshold
   tick: function (time, timeDelta) {
     if (this.pos.x < this.xMin) {
       this.xMin -= this.data.cellSize;
