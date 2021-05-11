@@ -11,11 +11,7 @@ AFRAME.registerComponent("gravity", {
     let xPos = this.el.object3D.position.x;
     let yPos = this.el.object3D.position.y;
     let zPos = this.el.object3D.position.z;
-
-    // console.log(xPos, yPos, zPos);
-    // console.log(this.rotation);
-
-    // let currCell = document.world.getVoxel(xPos, yPos, zPos);
+    
     let cellUnder = document.world.getVoxel(xPos, yPos - 2 + 20, zPos);
 
     if (cellUnder == 0) {
