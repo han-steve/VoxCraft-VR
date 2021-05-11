@@ -24,19 +24,19 @@ AFRAME.registerComponent("inventory", {
 
             <a-box id="${this.idPrefix}Frame" scale="0.01 0.0085 0.0005" position="0 0 -0.0085"  material="opacity: 0.5; transparent: true; color: #000000"></a-box>
 
-            <a-box id="${this.idPrefix}Button" scale="0.002 0.002 0.0001" position="-0.003 0.0009 -0.008"  material="opacity: 1; transparent: false; color: #ffffff"></a-box>
+            <a-box id="${this.idPrefix}Grass" scale="0.002 0.002 0.0001" position="-0.003 0.0009 -0.008"  material="opacity: 1; transparent: false; color: #ffffff"></a-box>
             <a-image scale="0.0018 0.0018 0.0001" position="-0.00295 0.0009 -0.0079" src="./assets/icons/grass.png" ></a-image>
 
-            <a-box id="${this.idPrefix}Button" scale="0.002 0.002 0.0001" position="0 0.0009 -0.008"  material="opacity: 1; transparent: false; color: #ffffff"></a-box>
+            <a-box id="${this.idPrefix}Plank" scale="0.002 0.002 0.0001" position="0 0.0009 -0.008"  material="opacity: 1; transparent: false; color: #ffffff"></a-box>
             <a-image scale="0.0018 0.0018 0.0001" position="0 0.0009 -0.0079" src="./assets/icons/plank.png" ></a-image>
 
-            <a-box id="${this.idPrefix}Button" scale="0.002 0.002 0.0001" position="0.003 0.0009 -0.008"  material="opacity: 1; transparent: false; color: #ffffff"></a-box>
+            <a-box id="${this.idPrefix}Stone" scale="0.002 0.002 0.0001" position="0.003 0.0009 -0.008"  material="opacity: 1; transparent: false; color: #ffffff"></a-box>
             <a-image scale="0.0018 0.0018 0.0001" position="0.003 0.0009 -0.0079" src="./assets/icons/stone.png" ></a-image>
             
-            <a-box id="${this.idPrefix}Button" scale="0.002 0.002 0.0001" position="-0.003 -0.0022 -0.008"  material="opacity: 1; transparent: false; color: #ffffff"></a-box>
+            <a-box id="${this.idPrefix}FreeHands" scale="0.002 0.002 0.0001" position="-0.003 -0.0022 -0.008"  material="opacity: 1; transparent: false; color: #ffffff"></a-box>
             <a-image scale="0.0018 0.0018 0.0001" position="-0.003 -0.0022 -0.0079" src="./assets/icons/no.png" ></a-image>
 
-            <a-box id="${this.idPrefix}Button" scale="0.002 0.002 0.0001" position="0 -0.0022 -0.008"  material="opacity: 1; transparent: false; color: #ffffff"></a-box>
+            <a-box id="${this.idPrefix}Bow" scale="0.002 0.002 0.0001" position="0 -0.0022 -0.008"  material="opacity: 1; transparent: false; color: #ffffff"></a-box>
             <a-image scale="0.0018 0.0018 0.0001" position="0 -0.0022 -0.0079" src="./assets/icons/bow_temp.png" ></a-image>
         `;
 
