@@ -41,4 +41,4 @@ Joystick to move, A to toggle inventory, B to toggle creative/survival, right tr
 ## Files
 [Our Presentation Slides (more gifs!)](https://docs.google.com/presentation/d/1Tq_JOM2Oneqv1TDhiUJuK-ranIs8vp45FR_SPWYpZf4/edit?usp=sharing)
 
-[Our Write-up (explanation of implementation)](https://docs.google.com/presentation/d/1Tq_JOM2Oneqv1TDhiUJuK-ranIs8vp45FR_SPWYpZf4/edit?usp=sharing)
+[Our Write-up (explanation of implementation)](https://docs.google.com/document/d/1-1NP7lCpQEtxOhAAv9GmeBvKOzj4Ss3CtwvtZ_xAmsk/edit?usp=sharing)
