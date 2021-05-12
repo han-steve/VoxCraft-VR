@@ -6,9 +6,9 @@ AFRAME.registerComponent("crawling-cursor", {
     this.el.addEventListener("raycaster-intersection", (event) => {
       let raycaster = this.el.components.raycaster;
       let id = raycaster.intersectedEls[0].id;
+      this.raycaster = raycaster;
+      this.cursor.setAttribute("visible", true);
       if (id === "world") {
-        this.raycaster = raycaster;
-        this.cursor.setAttribute("visible", true);
       } else if (id === "Plank") {
         document.currentBlock = 16;
         this.highlightInventoryItem(id);
@@ -43,8 +43,8 @@ AFRAME.registerComponent("crawling-cursor", {
       }
     });
     this.el.addEventListener("raycaster-intersection-cleared", (evt) => {
-      this.raycaster = null;
       this.cursor.setAttribute("visible", false);
+      this.raycaster = null;
     });
   },
 
