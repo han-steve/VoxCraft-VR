@@ -1,3 +1,7 @@
+#VoxCraft VR - Experience Minecraft with the immersiveness of virtual reality
+![Cover photo](./Cover.png?raw=true "Title")
+by Steve Han and Grace Liu
+For Computer Graphics final project
 Contents:
 
 - assets: all of the images/assets used in our VoxCraft world including textures and icons
