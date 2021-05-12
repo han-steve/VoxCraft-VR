@@ -84,7 +84,7 @@
         ></a-asset-item> -->
       </a-assets>
 
-      <a-entity class="cube" mixin="voxel"></a-entity>
+      <!-- <a-entity class="cube" mixin="voxel"></a-entity> -->
       <!-- Environment -->
       <!-- <a-cylinder
         id="ground"
@@ -103,13 +103,13 @@
         animation__colorTop="property: material.colorTop; type: color; to: #87ceff; dur: 60000; dir: alternate; loop: true"
         animation__colorBot="property: material.colorBottom; type: color; to: #add8e6; dur: 60000; dir: alternate; loop: true"
       ></a-entity>
-      <a-entity
+      <!-- <a-entity
         id="world"
         position="0, -20, 0"
         voxel-world="centerCell: 0,0"
         infinite-grid
         block-manipulation
-      ></a-entity>
+      ></a-entity> -->
       <!-- <a-entity
         light="type: point; color: #f4f4f4; intensity: 0.1; distance: 0"
         position="-2.5 1.2 2.2"
@@ -134,9 +134,10 @@
         movement-controls
         movement-mode="survival: false"
       >
+        <a-entity id="inventory" inventory visible="true"></a-entity>
         <a-entity id="camera" camera look-controls> </a-entity>
         <a-entity id="left-hand" minecraft-hand="hand: left">
-          <a-entity id="inventory" inventory visible="true"></a-entity>
+          <!-- <a-entity id="inventory" inventory visible="true"></a-entity> -->
         </a-entity>
         <a-entity
           id="right-hand"
