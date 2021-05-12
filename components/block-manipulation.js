@@ -37,6 +37,7 @@ AFRAME.registerComponent("block-manipulation", {
     };
 
     document.currentBlock = 14;
+    document.pickaxe = false;
 
     let rightHand = this.el.sceneEl.querySelector("#right-hand");
     rightHand.addEventListener("triggerup", () => {
@@ -103,16 +104,17 @@ AFRAME.registerComponent("block-manipulation", {
         }
         if (this.miningCount === this.startMiningThreshold) {
           // console.log("start mining");
-          this.finishMiningThreshold =
-            this.blockMineTime[
-              document.world.getVoxel(
-                position.x - intersection.face.normal.x * 0.5,
-                position.y -
-                  intersection.face.normal.y * 0.5 +
-                  this.cellOffsetY,
-                position.z - intersection.face.normal.z * 0.5
-              )
-            ];
+          this.finishMiningThreshold = document.pickaxe
+            ? this.startMiningThreshold
+            : this.blockMineTime[
+                document.world.getVoxel(
+                  position.x - intersection.face.normal.x * 0.5,
+                  position.y -
+                    intersection.face.normal.y * 0.5 +
+                    this.cellOffsetY,
+                  position.z - intersection.face.normal.z * 0.5
+                )
+              ];
         }
         if (this.miningCount === this.finishMiningThreshold) {
           // console.log("done mining");

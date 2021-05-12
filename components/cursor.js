@@ -19,7 +19,17 @@ AFRAME.registerComponent("crawling-cursor", {
         document.currentBlock = 14;
         this.highlightInventoryItem(id);
       } else if (id === "FreeHands") {
+        document.pickaxe = true;
+        this.el.sceneEl
+          .querySelector("#pickaxe")
+          .setAttribute("visible", "false");
+        this.highlightInventoryItem(id);
       } else if (id === "Pickaxe") {
+        document.pickaxe = false;
+        this.el.sceneEl
+          .querySelector("#pickaxe")
+          .setAttribute("visible", "true");
+        this.highlightInventoryItem(id);
       }
     });
     this.el.addEventListener("raycaster-intersection-cleared", (evt) => {
