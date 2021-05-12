@@ -7,6 +7,15 @@ by Steve Han and Grace Liu
 
 _For Computer Graphics final project_
 
+- Infinite voxel world 
+- Terrain generation with Perlin noise
+- Mine/place voxels with ray casting
+- Basic physical movement + flying mode 
+- Texture-mapped voxels
+- Day-night transition
+- User inventory
+
+
 ## Logistics
 Contents:
 
