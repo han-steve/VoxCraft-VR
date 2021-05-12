@@ -1,18 +1,12 @@
 AFRAME.registerComponent("infinite-grid", {
   dependencies: ["position"],
   schema: {
-    // currentGridX: { default: 0 },
-    // currentGridZ: { default: 0 },
     cellSize: { default: 32 },
   },
 
+  // initializing grid
   init: function () {
-    // this.camera = this.el.sceneEl.querySelector("#camera-rig")
     this.pos = this.el.sceneEl.querySelector("#camera-rig").object3D.position;
-    // this.xMin = -this.data.cellSize / 2;
-    // this.xMax = this.data.cellSize / 2;
-    // this.zMin = -this.data.cellSize / 2;
-    // this.zMax = this.data.cellSize / 2;
     this.xMin = 0;
     this.xMax = this.data.cellSize;
     this.zMin = 0;

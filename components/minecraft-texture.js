@@ -1,3 +1,4 @@
+// texture applied to the left and right arms
 AFRAME.registerComponent("minecraft-texture", {
   dependencies: ["material"],
   init: function () {
@@ -68,6 +69,5 @@ AFRAME.registerComponent("minecraft-texture", {
       bottomMaterial,
     ];
     this.el.getOrCreateObject3D("mesh").material = materials;
-    // console.log(this.el.getObject3D("mesh").geometry.faces);
   },
 });

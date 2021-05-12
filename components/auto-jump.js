@@ -18,14 +18,14 @@ AFRAME.registerComponent("auto-jump", {
       this.jumpingAnimation += 0.1;
       return;
     }
+
+    // camera positions
     let xPos = this.el.object3D.position.x;
     let yPos = this.el.object3D.position.y;
     let zPos = this.el.object3D.position.z;
-
-    // let newX = xPos - 0.1 * Math.sin(this.angle);
-    // let newZ = zPos - 0.1 * Math.cos(this.angle);
     let topY = yPos - 0.5 + this.cellTrans;
 
+    // the two voxels immediately in front of us
     let bottomVox = document.world.getVoxel(xPos, topY - 1, zPos);
     let topVox = document.world.getVoxel(xPos, topY, zPos);
 

@@ -51,8 +51,6 @@ AFRAME.registerComponent("block-manipulation", {
       if (!intersection) {
         return;
       }
-      // console.log(intersection.point);
-      // console.log(intersection.face);
 
       let face = intersection.face;
       let position = intersection.point;

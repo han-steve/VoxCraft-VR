@@ -38,7 +38,6 @@ AFRAME.registerComponent("inventory", {
           }
         }
       });
-    // console.log("inventory");
 
     // Create the "frame" of the select menu bar
     selectEl.innerHTML = `
