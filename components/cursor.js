@@ -1,9 +1,11 @@
-AFRAME.registerComponent("cursor", {
+AFRAME.registerComponent("crawling-cursor", {
   dependencies: ["raycaster"],
   init: function () {
     // Do something when component first attached.
-    this.el.addEventListener("raycaster-intersection", () => {
-      console.log(this.el.intersectObjects);
+    this.el.addEventListener("raycaster-intersection", (event) => {
+      console.log(this.intersectObjects);
+      console.log(event);
+      console.log(this.getIntersection());
     });
     this.cursor = this.el.sceneEl.querySelector("#cursor");
   },

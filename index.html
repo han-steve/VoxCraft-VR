@@ -8,7 +8,7 @@
       content="VoxelCaft VR - a minecraft demo made for VR"
     />
     <!-- <script src="../aframe.js"></script> -->
-    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="./utils/perlin.js"></script>
     <script src="components/aabb-collider.js"></script>
     <script src="components/bow-and-arrow.js"></script>
@@ -134,16 +134,17 @@
         movement-controls
         movement-mode="survival: false"
       >
-        <a-entity id="inventory" inventory visible="false"></a-entity>
-        <a-entity id="camera" camera look-controls></a-entity>
-        <a-entity id="left-hand" minecraft-hand="hand: left"> </a-entity>
+        <a-entity id="camera" camera look-controls> </a-entity>
+        <a-entity id="left-hand" minecraft-hand="hand: left">
+          <a-entity id="inventory" inventory visible="true"></a-entity>
+        </a-entity>
         <a-entity
           id="right-hand"
           laser-controls
           raycaster="objects: #world; far: 3"
           minecraft-hand="hand: right"
           change-mode
-          cursor
+          crawling-cursor
         >
         </a-entity>
       </a-entity>
