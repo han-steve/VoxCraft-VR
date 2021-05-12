@@ -18,6 +18,8 @@ AFRAME.registerComponent("crawling-cursor", {
       } else if (id === "Grass") {
         document.currentBlock = 14;
         this.highlightInventoryItem(id);
+      } else if (id === "FreeHands") {
+      } else if (id === "Pickaxe") {
       }
     });
     this.el.addEventListener("raycaster-intersection-cleared", (evt) => {

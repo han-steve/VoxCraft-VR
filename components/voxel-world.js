@@ -349,7 +349,7 @@ AFRAME.registerComponent("voxel-world", {
           if (
             x === startx * cellSize + cellSize / 2 &&
             z === startz * cellSize + cellSize / 2 &&
-            Math.random() > 0.1
+            Math.random() > 0.7
           ) {
             this.world.setVoxel(x, height + 1, z, 1);
             const light = new THREE.PointLight("#BC483E", 1, 10);
