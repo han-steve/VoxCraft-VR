@@ -72,7 +72,7 @@ AFRAME.registerComponent("inventory", {
         <a-image scale="0.15 0.15 0.001" position="-0.25 -0.18 -0.68" src="./assets/icons/no.png"></a-image>
 
         <a-box id="Pickaxe" class="intersectable" scale="0.17 0.17 0.001" position="0 -0.19 -0.7"  material="shader: flat; opacity: 1; transparent: false; color: #bfbfbf" flatShading="true"></a-box>
-        <a-image scale="0.15 0.15 0.001" position="-0.01 -0.18 -0.68" src="./assets/icons/bow_temp.png"></a-image>
+        <a-image scale="0.15 0.15 0.001" position="-0.01 -0.18 -0.68" src="./assets/icons/pickaxe.png"></a-image>
         `;
   },
   update: function () {},
