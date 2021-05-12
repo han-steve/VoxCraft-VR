@@ -1,7 +1,11 @@
-#VoxCraft VR - Experience Minecraft with the immersiveness of virtual reality
+# VoxCraft VR - Experience Minecraft with the immersiveness of virtual reality
 ![Cover photo](./Cover.png?raw=true "Title")
+![Mining](https://media.giphy.com/media/nZWtR6mwznL1T9SwZS/giphy.gif)
+
 by Steve Han and Grace Liu
-For Computer Graphics final project
+
+*For Computer Graphics final project*
+
 Contents:
 
 - assets: all of the images/assets used in our VoxCraft world including textures and icons
@@ -13,4 +17,5 @@ Contents:
 
 eCIS:
 I, Grace Liu (gyl242), affirm on my honor that I completed and submitted the eCIS for this course. :)
+
 I, Steve Han, affirm on my honor that I totally forgot to do the eCIS for this course :(
