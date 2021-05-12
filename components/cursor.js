@@ -12,23 +12,33 @@ AFRAME.registerComponent("crawling-cursor", {
       } else if (id === "Plank") {
         document.currentBlock = 16;
         this.highlightInventoryItem(id);
+        this.el.sceneEl
+          .querySelector("#pickaxe")
+          .setAttribute("visible", false);
+        document.pickaxe = false;
       } else if (id === "Stone") {
         document.currentBlock = 4;
         this.highlightInventoryItem(id);
+        this.el.sceneEl
+          .querySelector("#pickaxe")
+          .setAttribute("visible", false);
+        document.pickaxe = false;
       } else if (id === "Grass") {
         document.currentBlock = 14;
         this.highlightInventoryItem(id);
-      } else if (id === "FreeHands") {
-        document.pickaxe = true;
         this.el.sceneEl
           .querySelector("#pickaxe")
-          .setAttribute("visible", "false");
-        this.highlightInventoryItem(id);
-      } else if (id === "Pickaxe") {
+          .setAttribute("visible", false);
+        document.pickaxe = false;
+      } else if (id === "FreeHands") {
         document.pickaxe = false;
         this.el.sceneEl
           .querySelector("#pickaxe")
-          .setAttribute("visible", "true");
+          .setAttribute("visible", false);
+        this.highlightInventoryItem(id);
+      } else if (id === "Pickaxe") {
+        document.pickaxe = true;
+        this.el.sceneEl.querySelector("#pickaxe").setAttribute("visible", true);
         this.highlightInventoryItem(id);
       }
     });
@@ -39,7 +49,7 @@ AFRAME.registerComponent("crawling-cursor", {
   },
 
   highlightInventoryItem: function (id) {
-    let ids = ["Grass", "Stone", "Plank"];
+    let ids = ["Grass", "Stone", "Plank", "Pickaxe", "FreeHands"];
     for (i of ids) {
       if (i !== id) this.unHighlightInventoryItem(i);
     }
