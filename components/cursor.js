@@ -32,7 +32,7 @@ AFRAME.registerComponent("crawling-cursor", {
       if (i !== id) this.unHighlightInventoryItem(i);
     }
     let element = this.el.sceneEl.querySelector("#" + id);
-    element.setAttribute("material", "color", "#eeeeee");
+    element.setAttribute("material", "color", "#ffffff");
   },
 
   unHighlightInventoryItem: function (id) {
@@ -46,9 +46,9 @@ AFRAME.registerComponent("crawling-cursor", {
     let pos = this.raycaster.intersections[0].point;
     let normal = this.raycaster.intersections[0].face.normal;
     this.cursor.object3D.position.set(
-      pos.x + normal.x * 0.05,
-      pos.y + normal.y * 0.05,
-      pos.z + normal.z * 0.05
+      pos.x + normal.x * 0.01,
+      pos.y + normal.y * 0.01,
+      pos.z + normal.z * 0.01
     );
     // this.cursor.object3D.position.set(pos.x, pos.y, pos.z);
     if (normal.x === 1 || normal.x === -1)

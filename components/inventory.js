@@ -2,12 +2,41 @@ AFRAME.registerComponent("inventory", {
   schema: {},
   init: function () {
     var selectEl = this.el; // Reference to the component's element.
-    this.blockSelected = 0;
-    this.handSelected = 0;
     this.el.sceneEl
       .querySelector("#right-hand")
       .addEventListener("abuttonup", () => {
-        this.el.setAttribute("visible", !this.el.getAttribute("visible"));
+        if (this.el.getAttribute("visible")) {
+          // set not visible, remove intersectable
+          this.el.setAttribute("visible", false);
+          const ids = [
+            "Grass",
+            "Stone",
+            "Plank",
+            "FreeHands",
+            "Pickaxe",
+            "Frame",
+          ];
+          for (id of ids) {
+            this.el.sceneEl
+              .querySelector("#" + id)
+              .classList.remove("intersectable");
+          }
+        } else {
+          this.el.setAttribute("visible", true);
+          const ids = [
+            "Grass",
+            "Stone",
+            "Plank",
+            "FreeHands",
+            "Pickaxe",
+            "Frame",
+          ];
+          for (id of ids) {
+            this.el.sceneEl
+              .querySelector("#" + id)
+              .classList.add("intersectable");
+          }
+        }
       });
     // console.log("inventory");
 
@@ -42,7 +71,7 @@ AFRAME.registerComponent("inventory", {
         <a-box id="FreeHands" class="intersectable" scale="0.17 0.17 0.001" position="-0.26 -0.19 -0.7"  material="shader: flat; opacity: 1; transparent: false; color: #bfbfbf" flatShading="true"></a-box>
         <a-image scale="0.15 0.15 0.001" position="-0.25 -0.18 -0.68" src="./assets/icons/no.png"></a-image>
 
-        <a-box id="Bow" class="intersectable" scale="0.17 0.17 0.001" position="0 -0.19 -0.7"  material="shader: flat; opacity: 1; transparent: false; color: #bfbfbf" flatShading="true"></a-box>
+        <a-box id="Pickaxe" class="intersectable" scale="0.17 0.17 0.001" position="0 -0.19 -0.7"  material="shader: flat; opacity: 1; transparent: false; color: #bfbfbf" flatShading="true"></a-box>
         <a-image scale="0.15 0.15 0.001" position="-0.01 -0.18 -0.68" src="./assets/icons/bow_temp.png"></a-image>
         `;
   },
