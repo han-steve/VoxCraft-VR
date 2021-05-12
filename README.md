@@ -1,10 +1,11 @@
 # VoxCraft VR - Experience Minecraft with the immersiveness of virtual reality
-![Cover photo](./Cover.png?raw=true "Title")
-![Mining](https://media.giphy.com/media/nZWtR6mwznL1T9SwZS/giphy.gif)
+
+![Cover photo](./cover.png?raw=true "Title")
+![Mining](./mining.gif?raw=true)
 
 by Steve Han and Grace Liu
 
-*For Computer Graphics final project*
+_For Computer Graphics final project_
 
 Contents:
 
