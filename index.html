@@ -125,7 +125,9 @@
       ></a-entity>
       <a-plane
         id="cursor"
-        material="src: #cursorTexture; transparent: true"
+        material="src: #cursorTexture; transparent: true; side: double"
+        height=".3"
+        width=".3"
       ></a-plane>
       <!-- Hands -->
       <a-entity
@@ -140,8 +142,7 @@
         </a-entity>
         <a-entity
           id="right-hand"
-          laser-controls
-          raycaster="objects: #world; far: 3"
+          raycaster="objects: #world; far: 5; showLine: false"
           minecraft-hand="hand: right"
           change-mode
           crawling-cursor
