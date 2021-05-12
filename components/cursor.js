@@ -59,7 +59,7 @@ AFRAME.registerComponent("crawling-cursor", {
 
   unHighlightInventoryItem: function (id) {
     let element = this.el.sceneEl.querySelector("#" + id);
-    element.setAttribute("material", "color", "#bfbfbf");
+    element.setAttribute("material", "color", "#999999");
   },
 
   tick: function (time, timeDelta) {
