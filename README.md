@@ -22,6 +22,14 @@ I, Grace Liu (gyl242), affirm on my honor that I completed and submitted the eCI
 
 I, Steve Han, affirm on my honor that I totally forgot to do the eCIS for this course :(
 
+## Demo
+[link](https://hansteve.com/vr-minecraft)
+
+Compatibility only tested with Oculus 2. 
+
+Joystick to move, A to toggle inventory, B to toggle creative/survival, right trigger to build, move cursor around a block to mine, hover over inventory items to select. 
+
 ## Files
 [Our Presentation Slides (more gifs!)](https://docs.google.com/presentation/d/1Tq_JOM2Oneqv1TDhiUJuK-ranIs8vp45FR_SPWYpZf4/edit?usp=sharing)
+
 [Our Write-up (explanation of implementation)](https://docs.google.com/presentation/d/1Tq_JOM2Oneqv1TDhiUJuK-ranIs8vp45FR_SPWYpZf4/edit?usp=sharing)
