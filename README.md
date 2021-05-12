@@ -9,3 +9,4 @@ Contents:
 
 eCIS:
 I, Grace Liu (gyl242), affirm on my honor that I completed and submitted the eCIS for this course. :)
+I, Steve Han, affirm on my honor that I totally forgot to do the eCIS for this course :(
