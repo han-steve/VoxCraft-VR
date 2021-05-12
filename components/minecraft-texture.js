@@ -3,10 +3,10 @@ AFRAME.registerComponent("minecraft-texture", {
   init: function () {
     // Do something when component first attached.
     const topTexture = new THREE.TextureLoader().load(
-      "../assets/textures/grass_block_top.png"
+      "../assets/textures/arm.png"
     );
     const sideTexture = new THREE.TextureLoader().load(
-      "../assets/textures/grass_block_side.png"
+      "../assets/textures/arm.png"
     );
     topTexture.magFilter = THREE.NearestFilter;
     topTexture.minFilter = THREE.LinearMipMapLinearFilter;
