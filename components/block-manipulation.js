@@ -36,6 +36,8 @@ AFRAME.registerComponent("block-manipulation", {
       16: 150,
     };
 
+    document.currentBlock = 14;
+
     let rightHand = this.el.sceneEl.querySelector("#right-hand");
     rightHand.addEventListener("triggerup", () => {
       if (!this.raycaster) {
@@ -53,7 +55,7 @@ AFRAME.registerComponent("block-manipulation", {
 
       let face = intersection.face;
       let position = intersection.point;
-      this.placeBlock(face.normal, position, 14);
+      this.placeBlock(face.normal, position, document.currentBlock);
     });
   },
 
