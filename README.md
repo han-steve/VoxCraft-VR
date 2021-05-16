@@ -1,4 +1,4 @@
-# VoxCraft VR - Experience Minecraft with the immersiveness of virtual reality
+# VoxCraft VR - Experience Minecraft with the immersiveness of virtual reality, built with A-Frame
 
 ![Cover photo](./Cover.png?raw=true "Title")
 
