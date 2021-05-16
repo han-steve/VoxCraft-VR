@@ -1,15 +1,29 @@
 # VoxCraft VR - Experience Minecraft with the immersiveness of virtual reality
 
 ![Cover photo](./Cover.png?raw=true "Title")
-![Mining](./mining.gif?raw=true)
 
 by Steve Han and Grace Liu
 
 _For Computer Graphics final project_
 
-- Infinite voxel world 
-- Terrain generation with Perlin noise
-- Mine/place voxels with ray casting
+### Voxel Mesh 
+
+- 32x32x32 chunks
+- Generate the outside mesh of each chunk
+- Heavily inspired by [this article](https://threejsfundamentals.org/threejs/lessons/threejs-voxel-geometry.html)
+
+  ![Voxel Mesh](https://media.giphy.com/media/CfkmiWTierqTPEcmqy/giphy.gif)
+
+### Infinite Terrain 
+- Display 5x5 grid of chunks 
+- Generate and render new chunks when necessary
+- Store changes to old chunks
+- Perlin noise
+- Different voxel textures from texture atlas (by [Joshtimus](https://www.minecraftforum.net/members/Joshtimus)) according to height 
+- Randomly generate trees/lanterns
+
+
+  ![Building](https://media.giphy.com/media/qBF65k80atDQB0Bssq/giphy.gif)
 - Basic physical movement + flying mode 
 - Texture-mapped voxels
 - Day-night transition
