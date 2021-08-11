@@ -26,7 +26,7 @@ _For Computer Graphics final project_
   ![Infinite Terrain](https://i.ibb.co/rQZbBKk/Screen-Shot-2021-05-11-at-10-38-59-PM.png)
 
 ### Movement Modes
-- Creaive: the sky's the limit
+- Creative: the sky's the limit
 - Survival: gravity, autojump, and collision prevention
 
   ![Walking](https://media.giphy.com/media/JbCUca2NpB6RG57Hi4/giphy.gif)
